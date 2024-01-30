@@ -3,26 +3,39 @@ import { useState , useEffect} from "react";
 import Post from "./post";
 const Home = () => {
 
-    const [blogs, setBlog]= useState([null]);
-    const handelDelete= (id)=>{
+    const [blogs, setBlog]= useState(null);
+    const [error, setError] = useState(null);
+  /*   const handelDelete= (id)=>{
         const newBlogs = blogs.filter((item)=>(
             item.id !==id 
                ))
                setBlog(newBlogs)
-    };
+    }; */
 
-
-
-
-
+    const [isPending, setIsPending]=useState(true);
     useEffect(()=>{
-        fetch('http://localhost:8080/blogs').then(
-            res=> {
-                res.json()
-            }
-        ).then(data=>{
-            console.log(data)
-        })
+
+        setTimeout(() => {
+            fetch('http://localhost:8080/blogs').
+            then(res=> {
+                if(!res.ok){
+                    throw Error ('Could not fetch the data for that ressources ..');
+                }
+                console.log(res)
+                 return   res.json();
+                }
+            ).then(data=>{
+                setBlog(data)
+                setIsPending(false)
+                setError(null)
+            }).catch((err)=>{
+                console.log(err.message)
+                setIsPending(false)
+                setError(err.message)
+   
+            });
+        }, 2000);
+    
     }, [])
 
     
@@ -31,12 +44,12 @@ const Home = () => {
         <div className="home">
         </div>
         <br/>
-        <Post blogs={blogs} title="All Blogs !" handelDelete={handelDelete} />
-    {/*     <button onClick={()=>(setName('lugi'))}>Change Name</button>
-        <p>{name}</p> */}
-    {/*     <Post blogs={blogs.filter((item)=>(
-            item.author ==='bara'
-          ))} title="Bara Blogs !" /> */}
+{/*         { blogs &&  <Post blogs={blogs} title="All Blogs !" handelDelete={handelDelete} />}
+ */}        
+ 
+ {isPending && <div>Loading ...</div>}
+ { blogs &&  <Post blogs={blogs} title="All Blogs !"  />}
+{error && <div>{error}</div>  }
         </>
 
         
@@ -45,28 +58,3 @@ const Home = () => {
  
 export default Home;
 
-
-/*
-  const handelClick= (e)=>{
-        console.log("hello fucking word !!!",e)
-    }
-    const handelClickAgain= (name)=>{
-        console.log("hello fucking word !!!"+ name)
-    }
-      <button type="submit" onClick={handelClick}> fire </button>
-            <button type="submit" onClick={()=> handelClickAgain('mario') }> fire Me again </button>
-*/
-
-/*
-
-/* 
-    const [name, setName]= useState('bara')
-
-   useEffect(()=>{
-     console.log(name)
-     console.log("use Effect in action !!!")
-     /* localStorage.setItem('fuck', 'ffff')
-     const localStorageVariables= localStorage.getItem('fuck');
-     console.log(localStorageVariables) 
-     console.log(name)
-    }, [name]); */
