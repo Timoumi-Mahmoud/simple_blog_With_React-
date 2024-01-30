@@ -1,10 +1,11 @@
 
 import { useState , useEffect} from "react";
 import Post from "./post";
-const Home = () => {
+import useFetch from "./useFetch";
 
-    const [blogs, setBlog]= useState(null);
-    const [error, setError] = useState(null);
+const Home = () => {
+const {data: blogs, isPending, error} = useFetch('http://localhost:8080/blogs')
+   
   /*   const handelDelete= (id)=>{
         const newBlogs = blogs.filter((item)=>(
             item.id !==id 
@@ -12,32 +13,7 @@ const Home = () => {
                setBlog(newBlogs)
     }; */
 
-    const [isPending, setIsPending]=useState(true);
-    useEffect(()=>{
-
-        setTimeout(() => {
-            fetch('http://localhost:8080/blogs').
-            then(res=> {
-                if(!res.ok){
-                    throw Error ('Could not fetch the data for that ressources ..');
-                }
-                console.log(res)
-                 return   res.json();
-                }
-            ).then(data=>{
-                setBlog(data)
-                setIsPending(false)
-                setError(null)
-            }).catch((err)=>{
-                console.log(err.message)
-                setIsPending(false)
-                setError(err.message)
    
-            });
-        }, 2000);
-    
-    }, [])
-
     
     return (  
         <>
