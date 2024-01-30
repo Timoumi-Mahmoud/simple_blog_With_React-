@@ -1,7 +1,9 @@
 import { useState } from "react"
 
 
-const Post = ({blogs, title }) => {
+const Post = ({blogs, title , handelDelete}) => {
+
+
 
 /*     const blogs=props.blogs;
     const title=props.title; */
@@ -19,7 +21,8 @@ const Post = ({blogs, title }) => {
             {blogs.map((item)=>(
                 <div className="body-preview" key={item.id}>
                 <h2>{item.title}</h2>
-                <p>{item.author}</p>
+                <p> Written by {item.author}</p>
+                <button onClick={(id)=>handelDelete( item.id)}> Delete</button>
                 </div>     
         ))}
       
