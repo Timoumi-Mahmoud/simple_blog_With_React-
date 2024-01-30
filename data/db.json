@@ -1,0 +1,66 @@
+{ "blogs": [
+    {
+      "id": 1,
+      "title": "Introduction to React",
+      "body": "React is a JavaScript library for building user interfaces...",
+      "author": "John Doe"
+    },
+    {
+      "id": 2,
+      "title": "State and Props in React",
+      "body": "Understanding the concept of state and props in React is crucial...",
+      "author": "Jane Smith"
+    },
+    {
+      "id": 3,
+      "title": "React Hooks: A Deep Dive",
+      "body": "Hooks were introduced in React to allow functional components to use state...",
+      "author": "Chris Johnson"
+    },
+    {
+      "id": 4,
+      "title": "Building a Responsive UI with React",
+      "body": "Creating a responsive user interface is essential for a modern web application...",
+      "author": "Emily Davis"
+    },
+    {
+      "id": 5,
+      "title": "Optimizing Performance in React",
+      "body": "Performance optimization is a key consideration when developing React applications...",
+      "author": "Michael Wilson"
+    },
+    {
+      "id": 6,
+      "title": "Testing React Components",
+      "body": "Writing tests for your React components ensures the reliability of your application...",
+      "author": "Sarah Brown"
+    },
+    {
+      "id": 7,
+      "title": "Deploying React Apps with Netlify",
+      "body": "Netlify provides a seamless platform for deploying and hosting React applications...",
+      "author": "Alex Turner"
+    },
+    {
+      "id": 8,
+      "title": "Exploring Advanced React Patterns",
+      "body": "Dive into advanced React patterns to enhance your application's architecture...",
+      "author": "Daniel Miller"
+    },
+    {
+      "id": 9,
+      "title": "Server-Side Rendering with React",
+      "body": "Learn how to implement server-side rendering to improve your application's SEO...",
+      "author": "Grace White"
+    },
+    {
+      "id": 10,
+      "title": "React and Redux: State Management",
+      "body": "Using Redux alongside React for effective state management in large applications...",
+      "author": "Ryan Carter"
+    }
+
+
+]
+}
+  
