@@ -5,8 +5,10 @@ const Home = () => {
 
      const [blogs, setBlog]= useState([
         {title:'My new page', body:'lorem ipsum .....', author:'bara' , id:'1' },
-        {title:'Welcom to the party', body:'lorem ipsum .....', author:'Salim', id:'2'  },
-        {title:'Web dev top Tips ', body:'lorem ipsum .....', author:'mahmoud', id:'3'  }
+        {title:'Welcom to the party', body:'lorem ipsum .....', author:'bara', id:'2'  },
+        {title:'Web dev top Tips ', body:'lorem ipsum .....', author:'mahmoud', id:'3'  },
+        {title:'Yaeh yeah Salim in the House !!', body:'lorem ipsum .....', author:'Salim', id:'4'  },
+
 
     ]) 
   
@@ -17,6 +19,9 @@ const Home = () => {
         </div>
         <br/>
         <Post blogs={blogs} title="All Blogs !" />
+        <Post blogs={blogs.filter((item)=>(
+            item.author ==='bara'
+    ))} title="Bara Blogs !" />
         </>
 
         
