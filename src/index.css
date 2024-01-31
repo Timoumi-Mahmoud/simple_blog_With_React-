@@ -134,3 +134,11 @@ code {
   padding: 8px;
   
 }
+
+
+/**/
+.delete-button{
+  color: #ddd;
+  margin: 10px;
+  padding: 20px;
+}
