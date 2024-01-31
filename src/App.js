@@ -2,6 +2,7 @@
 import './App.css';
 import Create from './Create';
 import Navbar  from './Navbar';
+import NotFound from './NotFound';
 import PostDetails from './PostDetails';
 import Home from './home';
 import { BrowserRouter as Router , Route, Switch} from 'react-router-dom/cjs/react-router-dom.min';
@@ -23,6 +24,10 @@ export default function  App() {
           <Route path="/post/:id">
             <PostDetails />
           </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+
         </Switch>
       </div>   
       </div>
